@@ -1,0 +1,93 @@
+"use client";
+
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { cn } from "@/lib/utils";
+import { useHeaderMenuStore } from "@/store/header-menu";
+import Link from "next/link";
+import React from "react";
+import { useShallow } from "zustand/shallow";
+
+type TMenuItem = {
+  id: number,
+  name: string;
+  url: string;
+}
+interface Props {
+  className?: string;
+}
+
+const menuList: TMenuItem[] = [
+  {id: 1, name: "Home", url: "/"},
+  {id: 2, name: "About Us", url: "/about"},
+  {id: 3, name: "Services", url: "/services"},
+  {id: 4, name: "Our Teams", url: "/teams"},
+]
+
+const menuListBurger: TMenuItem[] = [
+  {id: 1, name: "Home", url: "/"},
+  {id: 2, name: "About Us", url: "/about"},
+  {id: 3, name: "Services", url: "/services"},
+  {id: 4, name: "Our Teams", url: "/teams"},
+  {id: 5, name: "Contact us", url: "/contact"},
+]
+export const NavMenu: React.FC<Props> = ({className}) => {
+  const [activeId, setActiveId] = useHeaderMenuStore(useShallow(state => [state.activeId, state.setActiveId ]))
+  return (
+    <>
+      <div
+        className={cn(
+          "hidden md:flex md:justify-between lg:gap-[74px] md:gap-5 text-base text-[#333333]",
+          className
+        )}
+      >
+        {menuList.map((item) => (
+          <Link
+            href={item.url}
+            key={item.id}
+            className={cn(
+              "py-2 relative after:absolute after:w-0 after:h-[2px] after:bg-[#333333] after:bottom-0 after:left-1/2 after:block after:duration-500 after:-translate-x-1/2 after:-translate-y-1/2 hover:after:w-full",
+              activeId === item.id && "font-semibold"
+            )}
+            onClick={() => setActiveId(item.id)}
+          >
+            {item.name}
+          </Link>
+        ))}
+        <Link href="/contact">
+          <button
+            className="bg-[#2c3878] text-white text-sm px-8 py-3 hover:bg-[#222222] duration-500"
+            type="button"
+          >
+            Contact us
+          </button>
+        </Link>
+      </div>
+
+      <div className="md:hidden">
+        <DropdownMenu>
+          <DropdownMenuTrigger>Open</DropdownMenuTrigger>
+          <DropdownMenuContent>
+            
+              {menuListBurger.map((item) => (
+                <DropdownMenuItem key={item.id}>
+                  <Link
+                  href={item.url}
+                  
+                  className={cn(
+                    "py-2 relative after:absolute after:w-0 after:h-[2px] after:bg-[#333333] after:bottom-0 after:left-1/2 after:block after:duration-500 after:-translate-x-1/2 after:-translate-y-1/2 hover:after:w-full",
+                    activeId === item.id && "font-semibold"
+                  )}
+                  onClick={() => setActiveId(item.id)}
+                >
+                  {item.name}
+                </Link>
+                </DropdownMenuItem>
+              ))}
+
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
+
+    </>
+  );
+}
