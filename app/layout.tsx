@@ -1,7 +1,9 @@
 import {Poppins} from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
-import { Header } from "@/components/shared/header";
+import { Header, Footer } from "@/components/shared";
+import { Toaster } from "react-hot-toast";
+
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -25,8 +27,10 @@ export default function RootLayout({
         <link data-rh="true" rel="icon" href="/sofa.png" />
       </head>
       <body className={poppins.className}>
+        <Toaster />
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -6,24 +6,17 @@ import { useHeaderMenuStore } from "@/store/header-menu";
 import Link from "next/link";
 import React from "react";
 import { useShallow } from "zustand/shallow";
+import { ContactButton } from "../contact-button";
+import { Menu } from "lucide-react";
+import { TMenuItem } from "@/@types/links-type";
 
-type TMenuItem = {
-  id: number,
-  name: string;
-  url: string;
-}
+
 interface Props {
   className?: string;
 }
 
-const menuList: TMenuItem[] = [
-  {id: 1, name: "Home", url: "/"},
-  {id: 2, name: "About Us", url: "/about"},
-  {id: 3, name: "Services", url: "/services"},
-  {id: 4, name: "Our Teams", url: "/teams"},
-]
 
-const menuListBurger: TMenuItem[] = [
+const menuList: TMenuItem[] = [
   {id: 1, name: "Home", url: "/"},
   {id: 2, name: "About Us", url: "/about"},
   {id: 3, name: "Services", url: "/services"},
@@ -31,7 +24,7 @@ const menuListBurger: TMenuItem[] = [
   {id: 5, name: "Contact us", url: "/contact"},
 ]
 export const NavMenu: React.FC<Props> = ({className}) => {
-  const [activeId, setActiveId] = useHeaderMenuStore(useShallow(state => [state.activeId, state.setActiveId ]))
+  const [activeId, setActiveId] = useHeaderMenuStore(useShallow(state => [state.activeId, state.setActiveId ]));
   return (
     <>
       <div
@@ -40,7 +33,7 @@ export const NavMenu: React.FC<Props> = ({className}) => {
           className
         )}
       >
-        {menuList.map((item) => (
+        {menuList.filter(item => item.url !== "/contact").map((item) => (
           <Link
             href={item.url}
             key={item.id}
@@ -53,26 +46,19 @@ export const NavMenu: React.FC<Props> = ({className}) => {
             {item.name}
           </Link>
         ))}
-        <Link href="/contact">
-          <button
-            className="bg-[#2c3878] text-white text-sm px-8 py-3 hover:bg-[#222222] duration-500"
-            type="button"
-          >
-            Contact us
-          </button>
-        </Link>
+        <ContactButton className="bg-[#2c3878] text-white" />
       </div>
 
       <div className="md:hidden">
         <DropdownMenu>
-          <DropdownMenuTrigger>Open</DropdownMenuTrigger>
+          <DropdownMenuTrigger>
+            <Menu />
+          </DropdownMenuTrigger>
           <DropdownMenuContent>
-            
-              {menuListBurger.map((item) => (
-                <DropdownMenuItem key={item.id}>
-                  <Link
+            {menuList.map((item) => (
+              <DropdownMenuItem key={item.id}>
+                <Link
                   href={item.url}
-                  
                   className={cn(
                     "py-2 relative after:absolute after:w-0 after:h-[2px] after:bg-[#333333] after:bottom-0 after:left-1/2 after:block after:duration-500 after:-translate-x-1/2 after:-translate-y-1/2 hover:after:w-full",
                     activeId === item.id && "font-semibold"
@@ -81,13 +67,11 @@ export const NavMenu: React.FC<Props> = ({className}) => {
                 >
                   {item.name}
                 </Link>
-                </DropdownMenuItem>
-              ))}
-
+              </DropdownMenuItem>
+            ))}
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-
     </>
   );
 }
