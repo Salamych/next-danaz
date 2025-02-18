@@ -29,7 +29,7 @@ export default function RootLayout({
       <body className={poppins.className}>
         <Toaster />
         <Header />
-        {children}
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

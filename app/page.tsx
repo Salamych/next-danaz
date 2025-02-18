@@ -1,4 +1,13 @@
+import { Achievements, ContactButton, Container, DescriptionTextGray, DisplayAccordion, InfoText36, PortfolioCard, SectionDivider, SectionProductThemes, SectionTitleWithDivider, ServiceAccordion } from "@/components/shared";
 import { Metadata } from "next";
+import Image from "next/image";
+import kitchen from "../public/assets/images/home-page/home-page-kitchen.png";
+import kitchenTable from "../public/assets/images/home-page/home-page-kitchen-table.png";
+import AuthorImage from "../public/assets/images/home-page/home-page-author-arga-danaan.png";
+import RoomImage from "../public/assets/images/home-page/home-page-room.png";
+import BoardsImage from "../public/assets/images/home-page/home-page-boards.png";
+import DrawingBoardImage from "../public/assets/images/home-page/home-page-drawing-board.png";
+import StonesImage from "../public/assets/images/home-page/home-page-stones.png";
 
 export const metadata: Metadata = {
   title: "Dananz | Home",
@@ -7,6 +16,100 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <h1>Danaz project begin</h1>
+    <Container>
+      <section className="mt-8 md:my-11">
+        <div className="relative">
+          <h2 className="mb-5 text-[40px] sm:text-[45px] md:text-[6vw] xl:text-[72px]/[100px] text-[#333333] font-semibold md:w-[56%] md:relative md:after:absolute md:after:w-full md:after:h-[2px] md:after:bg-black md:after:top-[16%] md:after:right-[-78%]">
+            Design your interor with high quality.
+          </h2>
+
+          <div className="md:absolute md:top-[50%] md:right-[0%] md:-rotate-90 font-medium text-lg text-[#333333] md:-mx-8">
+            <time dateTime="2025">2025</time>
+            <p className="uppercase">All right reserved</p>
+          </div>
+        </div>
+
+        <div className="relative">
+          <div>
+            <Image src={kitchen} alt="Kitchen" className="mb-2" />
+          </div>
+          <Achievements className="mb-2 md:absolute md:-top-[18vw] md:right-[11vw] lg:-top-52 lg:right-32" />
+        </div>
+      </section>
+
+      <section>
+        <SectionTitleWithDivider
+          sectionName="About"
+          text="“We're one of the best furniture agency. Prioritizing customers and making purchases easy are the hallmarks of our agency.”"
+          className="mb-14"
+        />
+
+        <PortfolioCard
+          imageFurniture={kitchenTable}
+          imageAuthor={AuthorImage}
+          imageFurnitureAlt="Kitchen table"
+          authorName="Arga Danaan"
+          authorWork="CEO of Dananz"
+          description="Online learning with us does not interfere with your daily life. because learning can be done anytime and anywhere."
+          textButton="Learn More"
+          urlButton="/portfolio"
+          className="mb-36"
+        />
+      </section>
+
+      <section>
+        <div className="mb-20">
+          <SectionTitleWithDivider
+            sectionName="Service"
+            text="attractive furniture with the best quality."
+          />
+          <DescriptionTextGray
+            description="Customize your interior design into a dream place with the best designers and quality furniture. We try our best to fulfill your expectations."
+            className="md:w-[470px] mb-10"
+          />
+          <div className="relative">
+            <div className="flex justify-end">
+              <div className="w-[1024px]">
+                <Image src={RoomImage} alt="Room image" />
+              </div>
+            </div>
+            <ServiceAccordion className="md:absolute md:top-0 bg-white md:w-[74vw] xl:w-[883px]" />
+          </div>
+        </div>
+      </section>
+
+      <SectionProductThemes />
+
+      <section>
+        <div className="pt-16 mb-28">
+          <SectionDivider name="Material" className="mb-8" />
+          <div className="lg:flex lg:justify-between">
+            <div className="lg:w-4/12 mb-10">
+              <InfoText36 text="choice of materials for quality furniture." />
+              <DescriptionTextGray description="You can custom the material as desired. And our furniture uses the best materials and selected quality materials." className="mb-6"/>
+              <ContactButton
+                urlButton="#"
+                text="See Materials"
+                className="border border-[#333333]"
+              />
+            </div>
+            <div className="sm:flex lg:w-7/12 relative">
+              <div className="sm:w-7/12 mb-10">
+                <Image src={BoardsImage} alt="Boards image" />
+              </div>
+
+              <div className=" sm:w-4/12 flex sm:flex-col gap-5 sm:absolute right-10 -top-20">
+                <div className="sm:w-[240px]">
+                  <Image src={DrawingBoardImage} alt="Drawing boards image" />
+                </div>
+                <div className="sm:w-[194px]">
+                  <Image src={StonesImage} alt="Stones image" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </Container>
   );
 }

@@ -8,7 +8,15 @@ export {ErrorText} from "./error-text";
 export {InputForNews} from "./input-for-news";
 export {RequiredSymbol} from "./required-symbol";
 export {SocialLinksIcons} from "./social-links-icons";
+export {Achievements} from "./achievements";
+
+export {PortfolioCard} from "./portfolio-card";
+
+export {DescriptionTextGray} from "./description-text-gray";
+
 
 export * from "./top-bar-menu";
 export * from "./send-form";
 export * from "./form";
+export * from "./accordion";
+export * from "./section-items";

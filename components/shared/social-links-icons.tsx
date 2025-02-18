@@ -20,7 +20,7 @@ export const SocialLinksIcons: React.FC<Props> = ({className}) => {
     <div className={cn("flex gap-6", className)}>
       {
         iconsName.map(item => (
-          <Link href={item.url} key={item.id}>
+          <Link href={item.url} key={item.id} className="p-1 rounded-[50%] hover:bg-gray-400">
             <Image 
               src={`/assets/images/social-logo/${item.name}-logo.png`}
               alt={item.name}

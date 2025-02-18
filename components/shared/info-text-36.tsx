@@ -8,8 +8,8 @@ interface Props {
 
 export const InfoText36: React.FC<Props> = ({text, className}) => {
   return (
-    <div className={cn("w-full mb-5 font-semibold text-3xl/[42px] md:text-4xl/[62px]", className)}>
+    <h3 className={cn("w-full mb-5 font-semibold text-3xl/[42px] md:text-4xl/[62px]", className)}>
       {text}
-  </div>
+  </h3>
   );
 }
