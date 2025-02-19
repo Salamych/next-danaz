@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <Container>
       <section className="mt-8 md:my-11">
-        <div className="relative">
+        <div className="relative pt-20">
           <h2 className="mb-5 text-[40px] sm:text-[45px] md:text-[6vw] xl:text-[72px]/[100px] text-[#333333] font-semibold md:w-[56%] md:relative md:after:absolute md:after:w-full md:after:h-[2px] md:after:bg-black md:after:top-[16%] md:after:right-[-78%]">
             Design your interor with high quality.
           </h2>

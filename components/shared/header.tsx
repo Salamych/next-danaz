@@ -11,9 +11,9 @@ interface Props {
 
 export const Header: React.FC<Props> = ({className}) => {
   return (
-    <header className={cn("pt-10",className)}>
+    <header className={cn("pt-10 sticky top-5 z-10",className)}>
       <Container>
-        <div className="flex justify-between items-center flex-wrap -mx-4">
+        <div className="flex justify-between items-center flex-wrap -mx-4 bg-white">
           <Link href="/" className="mx-4">
             <Image 
               src="/assets/images/logo/danaz-logo.png"

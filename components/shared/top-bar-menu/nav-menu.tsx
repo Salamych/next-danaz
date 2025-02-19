@@ -2,13 +2,12 @@
 
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
-import { useHeaderMenuStore } from "@/store/header-menu";
 import Link from "next/link";
 import React from "react";
-import { useShallow } from "zustand/shallow";
 import { ContactButton } from "../contact-button";
 import { Menu } from "lucide-react";
 import { TMenuItem } from "@/@types/links-type";
+import { usePathname } from "next/navigation";
 
 
 interface Props {
@@ -24,7 +23,7 @@ const menuList: TMenuItem[] = [
   {id: 5, name: "Contact us", url: "/contact"},
 ]
 export const NavMenu: React.FC<Props> = ({className}) => {
-  const [activeId, setActiveId] = useHeaderMenuStore(useShallow(state => [state.activeId, state.setActiveId ]));
+  const path = usePathname();
   return (
     <>
       <div
@@ -39,9 +38,9 @@ export const NavMenu: React.FC<Props> = ({className}) => {
             key={item.id}
             className={cn(
               "py-2 relative after:absolute after:w-0 after:h-[2px] after:bg-[#333333] after:bottom-0 after:left-1/2 after:block after:duration-500 after:-translate-x-1/2 after:-translate-y-1/2 hover:after:w-full",
-              activeId === item.id && "font-semibold"
+              path === item.url && "font-semibold"
             )}
-            onClick={() => setActiveId(item.id)}
+            
           >
             {item.name}
           </Link>
@@ -61,9 +60,8 @@ export const NavMenu: React.FC<Props> = ({className}) => {
                   href={item.url}
                   className={cn(
                     "py-2 relative after:absolute after:w-0 after:h-[2px] after:bg-[#333333] after:bottom-0 after:left-1/2 after:block after:duration-500 after:-translate-x-1/2 after:-translate-y-1/2 hover:after:w-full",
-                    activeId === item.id && "font-semibold"
+                    path === item.url && "font-semibold"
                   )}
-                  onClick={() => setActiveId(item.id)}
                 >
                   {item.name}
                 </Link>

@@ -24,6 +24,7 @@ export const SendForNewsForm: React.FC<Props> = ({className}) => {
   
   const onSubmit = () => {
     console.log("News is done");
+    form.reset();
     toast.success("Subscription completed")
   }
 

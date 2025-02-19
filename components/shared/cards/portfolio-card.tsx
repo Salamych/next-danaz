@@ -1,8 +1,8 @@
 import Image, { StaticImageData } from "next/image";
 import React from "react";
-import { ContactButton } from "./contact-button";
+import { ContactButton } from "../contact-button";
 import { cn } from "@/lib/utils";
-import { DescriptionTextGray } from "./description-text-gray";
+import { DescriptionTextGray } from "../description-text-gray";
 
 interface Props {
   imageFurniture: StaticImageData; 
