@@ -9,7 +9,7 @@ interface Props {
   className?: string;
 }
 
-export const SectionProductThemes: React.FC<Props> = ({className}) => {
+export const SectionProductThemesWithAccordion: React.FC<Props> = ({className}) => {
   return (
     <section>
       <div className={cn("mb-20", className)}>
