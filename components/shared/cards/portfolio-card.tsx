@@ -4,7 +4,7 @@ import { ContactButton } from "../contact-button";
 import { cn } from "@/lib/utils";
 import { DescriptionTextGray } from "../description-text-gray";
 
-interface Props {
+export interface PortfolioCard {
   imageFurniture: StaticImageData; 
   imageAuthor: StaticImageData; 
   imageFurnitureAlt: string;
@@ -13,11 +13,14 @@ interface Props {
   description: string;
   textButton: string;
   urlButton: string;
+  title?: string;
   isEven?: boolean;
+}
+interface Props extends PortfolioCard{  
   className?: string;
 }
 
-export const PortfolioCard: React.FC<Props> = ({imageFurniture, imageAuthor, imageFurnitureAlt, authorName, authorWork, description, textButton, urlButton, isEven = false, className}) => {
+export const PortfolioCard: React.FC<Props> = ({imageFurniture, imageAuthor, imageFurnitureAlt, authorName, authorWork, title, description, textButton, urlButton, isEven = false, className}) => {
   return (
     <div
       className={cn(
@@ -27,7 +30,9 @@ export const PortfolioCard: React.FC<Props> = ({imageFurniture, imageAuthor, ima
       )}
     >
       <div className="md:w-8/12 relative mb-5">
-        <Image src={imageFurniture} alt={imageFurnitureAlt} />
+        <div className="max-w-[883px]">
+          <Image src={imageFurniture} alt={imageFurnitureAlt} />
+        </div>
         <div
           className={cn(
             "flex gap-5 p-5 bg-white shadow-2xl w-[276px] absolute top-5 ",
@@ -48,6 +53,7 @@ export const PortfolioCard: React.FC<Props> = ({imageFurniture, imageAuthor, ima
       </div>
       <div className="md:w-4/12 lg:w-3/12 flex flex-col self-center">
         <div className="lg:pt-[12vw] xl:pt-[150px] flex flex-col gap-5 md:gap-8">
+          <h3 className="text-2xl text-[#333333] font-semibold">{title}</h3>
           <DescriptionTextGray
             description={description}
             className="md:w-[240px]"

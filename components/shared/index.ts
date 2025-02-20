@@ -22,3 +22,4 @@ export * from "./accordion";
 export * from "./section-items";
 export * from "./head-title";
 export * from "./cards";
+export * from "./portfolio";

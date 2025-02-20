@@ -20,7 +20,7 @@ export const SectionHeadTitleWithImage: React.FC<Props> = ({pageName, imageAlt, 
           className="mb-10"
         />
       </div>
-      <div className="mb-20">
+      <div className="mb-20 max-h-[486px]">
         <Image src={imageUrl} alt={imageAlt} />
       </div>
     </div>

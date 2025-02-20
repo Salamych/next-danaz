@@ -1,8 +1,8 @@
-import { Achievements, ContactButton, Container, DescriptionTextGray, DisplayAccordion, InfoText36, PortfolioCard, SectionDivider, SectionProductThemes, SectionTitleWithDivider, ServiceAccordion } from "@/components/shared";
+import { Achievements, ContactButton, Container, DescriptionTextGray, DisplayAccordion, InfoText36, PortfolioCard, SectionDivider,  SectionProductThemesWithAccordion,  SectionTitleWithDivider, ServiceAccordion } from "@/components/shared";
 import { Metadata } from "next";
 import Image from "next/image";
 import kitchen from "../public/assets/images/home-page/home-page-kitchen.png";
-import kitchenTable from "../public/assets/images/home-page/home-page-kitchen-table.png";
+import kitchenTable from "../public/assets/images/home-page/home-page-kitchen-table.jpeg";
 import AuthorImage from "../public/assets/images/home-page/home-page-author-arga-danaan.png";
 import RoomImage from "../public/assets/images/home-page/home-page-room.png";
 import BoardsImage from "../public/assets/images/home-page/home-page-boards.png";
@@ -78,7 +78,7 @@ export default function Home() {
         </div>
       </section>
 
-      <SectionProductThemes />
+      <SectionProductThemesWithAccordion />
 
       <section>
         <div className="pt-16 mb-28">

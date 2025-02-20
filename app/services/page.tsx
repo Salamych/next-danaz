@@ -1,4 +1,4 @@
-import { Container, SectionDivider, SectionHeadTitleWithImage, SectionProductThemes, ServiceAchievementCard } from "@/components/shared";
+import { Container, SectionDivider, SectionHeadTitleWithImage,  SectionProductThemesWithAccordion, ServiceAchievementCard } from "@/components/shared";
 import { Metadata } from "next";
 import { TServiceAchieveCard } from "@/components/shared/cards/service-achievement-card";
 import TitleRoomImage from "../../public/assets/images/services-page/services-page-title-room.png"; 
@@ -62,7 +62,7 @@ export default function Services() {
           </div>
         </div>
       </section>
-      <SectionProductThemes />
+      <SectionProductThemesWithAccordion />
     </Container>
   );
 }

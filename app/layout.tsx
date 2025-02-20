@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Header, Footer } from "@/components/shared";
 import { Toaster } from "react-hot-toast";
+import NextTopLoader from 'nextjs-toploader';
 
 
 const poppins = Poppins({
@@ -27,6 +28,7 @@ export default function RootLayout({
         <link data-rh="true" rel="icon" href="/sofa.png" />
       </head>
       <body className={poppins.className}>
+        <NextTopLoader />
         <Toaster />
         <Header />
         <main>{children}</main>
