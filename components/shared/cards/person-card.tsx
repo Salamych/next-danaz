@@ -22,7 +22,7 @@ export const PersonCard: React.FC<Props> = ({imageUrl, imageAlt, name, work, cla
         <Image src={imageUrl} alt={imageAlt} />
       </div>
       <div className="absolute bottom-3 right-3 left-3 bg-white p-5">
-        <p className="text-xl lg:text-[2vw] text-[#333333] font-semibold">{name}</p>
+        <p className="text-xl lg:text-[2vw] xl:text-2xl text-[#333333] font-semibold">{name}</p>
         <DescriptionTextGray description={work} />
       </div>
     </div>

@@ -13,7 +13,7 @@ interface Props {
   className?: string;
 }
 
-export const PortfolioDetailsTemplate: React.FC<Props> = ({url, className}) => {
+export const PortfolioDetailsTemplate: React.FC<Props> = ({url}) => {
   const [portfolioList, previewImageList] = usePortfolioListStore(useShallow((state) => [
     state.portfolioList,
     state.previewImageList,

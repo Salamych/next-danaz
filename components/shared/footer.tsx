@@ -5,7 +5,6 @@ import { ContactButton } from "./contact-button";
 import Link from "next/link";
 import Image from "next/image";
 import { InfoText36 } from "./info-text-36";
-import { Dot } from "lucide-react";
 import { SendForNewsForm } from "./send-form";
 import { SocialLinksIcons } from "./social-links-icons";
 

@@ -1,4 +1,4 @@
-import { Container, PortfolioCard, PortfolioDetailsTemplate, SectionDivider, SectionHeadTitleWithImage,SectionWhyChooseUs } from "@/components/shared";
+import { Container,  PortfolioDetailsTemplate} from "@/components/shared";
 import { Metadata } from "next";
 
 

@@ -1,4 +1,4 @@
-import { Achievements, ContactButton, Container, DescriptionTextGray, DisplayAccordion, InfoText36, PortfolioCard, SectionDivider,  SectionProductThemesWithAccordion,  SectionTitleWithDivider, ServiceAccordion } from "@/components/shared";
+import { Achievements, ContactButton, Container, DescriptionTextGray, InfoText36, PortfolioCard, SectionDivider,  SectionProductThemesWithAccordion,  SectionTitleWithDivider, ServiceAccordion } from "@/components/shared";
 import { Metadata } from "next";
 import Image from "next/image";
 import kitchen from "../public/assets/images/home-page/home-page-kitchen.png";

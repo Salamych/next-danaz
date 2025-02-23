@@ -1,9 +1,13 @@
 import React from "react";
 import { DescriptionTextGray } from "../description-text-gray";
 
-interface Props {
+export interface ITitleWithDescriptionItem {
   title: string;
   description: string;
+}
+
+interface Props extends ITitleWithDescriptionItem{
+  
   className?: string;
 }
 
